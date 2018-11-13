@@ -51,8 +51,8 @@ class Configuration(object):
         # Don't toggle this variable, done internally
         self.use_meta_language = True
 
-	# Keep blockquote tags in cleaned text (e.g. tweets)
-	self.keep_tweets = False
+    	# Keep blockquote tags in cleaned text (e.g. tweets)
+    	self.keep_tweets = False
 
         # You may keep the html of just the main article body
         self.keep_article_html = False
