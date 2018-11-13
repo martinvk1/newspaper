@@ -1042,10 +1042,11 @@ class ContentExtractor(object):
         """Remove any divs that looks like non-content, clusters of links,
         or paras with no gusto; add adjacent nodes which look contenty
         """
+        allowed_tags = ['p', 'blockquote'] if self.config.keep_tweets else ['p']
         node = self.add_siblings(top_node)
         for e in self.parser.getChildren(node):
             e_tag = self.parser.getTag(e)
-            if e_tag not in ['p','blockquote']:
+            if e_tag not in allowed_tags:
                 if self.is_highlink_density(e):
                     self.parser.remove(e)
         return node
