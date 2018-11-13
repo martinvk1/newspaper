@@ -1045,7 +1045,7 @@ class ContentExtractor(object):
         node = self.add_siblings(top_node)
         for e in self.parser.getChildren(node):
             e_tag = self.parser.getTag(e)
-            if e_tag != 'p':
+            if e_tag not in ['p','blockquote']:
                 if self.is_highlink_density(e):
                     self.parser.remove(e)
         return node
