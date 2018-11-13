@@ -1044,8 +1044,6 @@ class ContentExtractor(object):
         or paras with no gusto; add adjacent nodes which look contenty
         """
         allowed_tags = ['p', 'blockquote'] if self.config.keep_tweets else ['p']
-        print(allowed_tags)
-        print(self.config.keep_tweets)
         node = self.add_siblings(top_node)
         for e in self.parser.getChildren(node):
             e_tag = self.parser.getTag(e)
