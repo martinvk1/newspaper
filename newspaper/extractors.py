@@ -58,6 +58,7 @@ class ContentExtractor(object):
         self.parser = self.config.get_parser()
         self.language = config.language
         self.stopwords_class = config.stopwords_class
+        self.keep_tweets = config.keep_tweets
 
     def update_language(self, meta_lang):
         """Required to be called before the extraction process in some
@@ -1043,6 +1044,8 @@ class ContentExtractor(object):
         or paras with no gusto; add adjacent nodes which look contenty
         """
         allowed_tags = ['p', 'blockquote'] if self.config.keep_tweets else ['p']
+        print(allowed_tags)
+        print(self.config.keep_tweets)
         node = self.add_siblings(top_node)
         for e in self.parser.getChildren(node):
             e_tag = self.parser.getTag(e)
